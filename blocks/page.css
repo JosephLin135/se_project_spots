@@ -1,5 +1,224 @@
-.page {
+body {
     background-color: #FCF5E5;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
+.page {
+    height: 1416px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #fff;
+    flex-shrink: 0;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__logo {
+    display: block;
+}
+
+.content {
+    flex: 1;
+}
+
+.profile {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    width: 1280px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__picture {
+    width: 190px;
+    height: 190px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.profile__details {
+    flex: 1;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.profile__info-title {
+    margin: 0;
+    width: 420px;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    color: #212121;
+}
+
+.profile__info-subheading {
+    margin: 0;
+    width: 420px;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #212121;
+    opacity: 70%;
+}
+
+.profile__actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.profile__button {
+    border: none;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile__button-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.profile__button-text {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.profile__button_type_edit {
+    min-height: 24px;
+    opacity: 70%;
+}
+
+.profile__button_type_edit:hover {
+    opacity: 100%;
+}
+
+.profile__button_type_new-post {
+    border-radius: 8px;
+    background-color: #212121;
+    padding: 18px 32px;
+    gap: 8px;
+}
+
+.profile__button_type_new-post:hover {
+    opacity: 70%;  
+}
+
+.profile__button_type_new-post .profile__button-text {
+    color: #fff;
+}
+
+.content__cards {
+    width: 1280px;
+    margin: 20px auto 0;
+    padding-bottom: 24px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}   
+
+.cards {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card__image {
+    width: 100%;
+    height: 413px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+.card__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__title {
+    margin: 0;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #212121;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    color: #212121;
+}
+
+.card__like-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.card__like-icon {
+    width: 23px;
+    height: 20px;
+    display: block;
+    opacity: 40%;
+    transition: opacity 0.8s ease;
+}
+
+.card__like-button:hover .card__like-icon {
+    opacity: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: calc(1416px - 1340px);
+}
+
+.footer__content {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    opacity: 70%;
+}
