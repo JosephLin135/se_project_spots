@@ -8,4 +8,4 @@ The technologies and techniques that were used for this project were using HTML 
 
 ## GitHub Pages
 
-View deployed project here: https://josephlin.github.io/se_project_spots/
+View deployed project here: https://josephlin135.github.io/se_project_spots/
