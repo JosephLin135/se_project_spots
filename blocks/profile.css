@@ -1,0 +1,115 @@
+.profile {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__picture {
+    width: 190px;
+    height: 190px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.profile__details {
+    flex: 1;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.profile__info-title {
+    margin: 0;
+    max-width: 420px;
+    width: 100%;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    color: #212121;
+}
+
+.profile__info-subheading {
+    margin: 0;
+    max-width: 420px;
+    width: 100%;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #212121;
+    opacity: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.profile__actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.profile__button {
+    border: none;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile__button-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.profile__button-text {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.profile__button_type_edit {
+    min-height: 24px;
+    opacity: 70%;
+}
+
+.profile__button_type_edit:hover {
+    opacity: 100%;
+}
+
+.profile__button_type_new-post {
+    border-radius: 8px;
+    background-color: #212121;
+    padding: 18px 32px;
+}
+
+.profile__button_type_new-post:hover {
+    opacity: 70%;  
+}
+
+.profile__button_type_new-post .profile__button-text {
+    color: #fff;
+}
