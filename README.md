@@ -9,3 +9,8 @@ The technologies and techniques that were used for this project were using HTML 
 ## GitHub Pages
 
 View deployed project here: https://josephlin135.github.io/se_project_spots/
+
+
+## Project Pitch Video Link
+
+View the project pitch video here: https://drive.google.com/file/d/1ySbVAo53_LcaR-qJmpW-p95xMEa9bnRO/view?usp=drive_link
