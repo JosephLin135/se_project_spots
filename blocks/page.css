@@ -1,36 +1,42 @@
 .page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #FCF5E5;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-}  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fcf5e5;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
 
 @media (max-width: 1320px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .cards__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 630px) {
-    .profile,
-    .content__cards {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
+  .profile,
+  .cards {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+  }
 
-    .profile {
-        flex-direction: column;
-        padding-top: 40px;
-    }
+  .profile__details {
+    height: auto;
+    width: 100%;
+  }
 
-    .profile__details {
-        height: auto;
-        width: 100%;
-    }
+  .cards__list {
+    grid-template-columns: 1fr;
+  }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
+  .card__image {
+    height: 288px;
+    width: 288px;
+  }
 }
