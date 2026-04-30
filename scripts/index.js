@@ -1,4 +1,25 @@
 // console.log("Hello");
+let initialCards = [
+{   name: "Mt. Fuji",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
+},
+{   name: "Fushimi Inari Taishi",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"
+},
+{   name: "Kyoto",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
+},
+{   name: "Shibuya Crossing",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
+},
+{   name: "Tokyo Sky Tree",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+},
+{   name: "Tokyo Tower",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
+},
+];
+
 
 // This is for the edit profile button
 const editProfile = document.querySelector(".profile__button_type_edit");
@@ -26,4 +47,7 @@ newPostCloseButton.addEventListener("click", function () {
 });
 
 
+initialCards.forEach(function(card){
+    console.log(card);
+})
 
