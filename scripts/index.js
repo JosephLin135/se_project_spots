@@ -20,6 +20,21 @@ let initialCards = [
 },
 ];
 
+// Select the necessary form elements. You should select
+// these from inside the modal, not the document.
+const profileFormElement = document.querySelector("#edit-profile-modal .modal__form");
+const nameInput = profileFormElement.querySelector("#profile-name-input");
+const jobInput = profileFormElement.querySelector("#profile-description-input");
+
+// If you haven't done so already, select
+// the profile elements from the document.
+const profileNameElement = document.querySelector(".profile__info-title");
+const profileJobElement = document.querySelector(".profile__info-subheading");
+// Select the necessary form elements. You should select
+// these from inside the modal, not the document.
+const addCardFormElement = document.querySelector("#new-post-modal .modal__form");
+const cardNameInput = addCardFormElement.querySelector("#post-caption-input");
+const cardLinkInput = addCardFormElement.querySelector("#post-image-input");
 
 // This is for the edit profile button
 const editProfile = document.querySelector(".profile__button_type_edit");
@@ -50,4 +65,48 @@ newPostCloseButton.addEventListener("click", function () {
 initialCards.forEach(function(card){
     console.log(card.name);
 })
+
+// Create the form submission handler. 
+function handleProfileFormSubmit(evt) {
+  // Prevent default browser behavior.
+  evt.preventDefault(); 
+ 
+  // Get the values of each form field from the value
+  // property of the corresponding input element.
+  const nameValue = nameInput.value;
+  const jobValue = jobInput.value;
+
+  // Insert these new values into the textContent
+  // property of the corresponding profile elements.
+  profileNameElement.textContent = nameValue;
+  profileJobElement.textContent = jobValue;
+
+  // Close the modal.
+  editProfileModal.classList.remove("modal_is-opened");
+}
+
+
+// Create the form submission handler.
+function handleAddCardSubmit(evt) {
+  // Prevent default browser behavior.
+  evt.preventDefault(); 
+ 
+  const cardNameValue = cardNameInput.value;
+  const cardLinkValue = cardLinkInput.value;
+
+  // Log both input values to the console.
+  console.log(cardNameValue);
+  console.log(cardLinkValue);
+
+  // Close the modal.
+  newPostModal.classList.remove("modal_is-opened");
+}
+
+// Create the submit listener.
+addCardFormElement.addEventListener('submit', handleAddCardSubmit);
+
+// Set the submit listener.
+profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+
 
