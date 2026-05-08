@@ -37,16 +37,27 @@ const cardNameInput = addCardFormElement.querySelector("#post-caption-input");
 const cardLinkInput = addCardFormElement.querySelector("#post-image-input");
 
 // This is for the edit profile button
+// Modal helper functions
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 const editProfile = document.querySelector(".profile__button_type_edit");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseButton = editProfileModal.querySelector(".modal__close-button");
 
 editProfile.addEventListener("click", function () {
-    editProfileModal.classList.add("modal_is-opened");
+    nameInput.value = profileNameElement.textContent;
+    jobInput.value = profileJobElement.textContent;
+    openModal(editProfileModal);
 });
 
 editProfileCloseButton.addEventListener("click", function () {
-    editProfileModal.classList.remove("modal_is-opened");
+    closeModal(editProfileModal);
 });
 // This is for the new post button
 const newPost = document.querySelector(".profile__button_type_new-post");
@@ -54,11 +65,11 @@ const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
 
 newPost.addEventListener("click", function () {
-   newPostModal.classList.add("modal_is-opened");
+   openModal(newPostModal);
 });
 
 newPostCloseButton.addEventListener("click", function () {
-    newPostModal.classList.remove("modal_is-opened");
+    closeModal(newPostModal);
 });
 
 
@@ -82,7 +93,7 @@ function handleProfileFormSubmit(evt) {
   profileJobElement.textContent = jobValue;
 
   // Close the modal.
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 
@@ -99,7 +110,7 @@ function handleAddCardSubmit(evt) {
   console.log(cardLinkValue);
 
   // Close the modal.
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 
 // Create the submit listener.
