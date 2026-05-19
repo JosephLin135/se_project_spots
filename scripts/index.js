@@ -1,43 +1,42 @@
-// console.log("Hello");
 let initialCards = [
 {   name: "Mt. Fuji",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
+  link: "./images/fuji.jpg"
 },
-{   name: "Fushimi Inari Taishi",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"
+{   name: "Fushimi Inari Taisha",
+  link: "./images/fushimi.jpg"
 },
 {   name: "Kyoto",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
+  link: "./images/kyoto.jpg"
 },
 {   name: "Shibuya Crossing",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
+  link: "./images/shibuya.jpg"
 },
 {   name: "Tokyo Sky Tree",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+  link: "./images/sky-tree.jpg"
 },
 {   name: "Tokyo Tower",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
+  link: "./images/tokyo-tower.jpg"
 },
 ];
 
-// Select the necessary form elements. You should select
-// these from inside the modal, not the document.
 const profileFormElement = document.querySelector("#edit-profile-modal .modal__form");
 const nameInput = profileFormElement.querySelector("#profile-name-input");
 const jobInput = profileFormElement.querySelector("#profile-description-input");
 
-// If you haven't done so already, select
-// the profile elements from the document.
 const profileNameElement = document.querySelector(".profile__info-title");
 const profileJobElement = document.querySelector(".profile__info-subheading");
-// Select the necessary form elements. You should select
-// these from inside the modal, not the document.
+
 const addCardFormElement = document.querySelector("#new-post-modal .modal__form");
 const cardNameInput = addCardFormElement.querySelector("#post-caption-input");
 const cardLinkInput = addCardFormElement.querySelector("#post-image-input");
+const cardsList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template");
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
+const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalCaption = previewModal.querySelector(".modal__caption");
 
-// This is for the edit profile button
-// Modal helper functions
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -59,7 +58,7 @@ editProfile.addEventListener("click", function () {
 editProfileCloseButton.addEventListener("click", function () {
     closeModal(editProfileModal);
 });
-// This is for the new post button
+
 const newPost = document.querySelector(".profile__button_type_new-post");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
@@ -72,10 +71,50 @@ newPostCloseButton.addEventListener("click", function () {
     closeModal(newPostModal);
 });
 
+previewModalCloseButton.addEventListener("click", function () {
+  closeModal(previewModal);
+});
 
-initialCards.forEach(function(card){
-    console.log(card.name);
-})
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardTitle.textContent = data.name;
+
+  cardImage.addEventListener("click", function() {
+    previewModalImage.src = data.link;
+    previewModalImage.alt = data.name;
+    previewModalCaption.textContent = data.name;
+    openModal(previewModal);
+  });
+
+  deleteButton.addEventListener("click", function() {
+    cardElement.remove();
+  });
+
+  const likeIcon = cardElement.querySelector(".card__like-icon");
+  likeButton.addEventListener("click", function() {
+    likeButton.classList.toggle("card__like-button_is-active");
+    if (likeButton.classList.contains("card__like-button_is-active")) {
+      likeIcon.src = "./images/liked.svg";
+    } else {
+      likeIcon.src = "./images/like.svg";
+    }
+  });
+
+  return cardElement;
+}
+
+initialCards.forEach(function(card) {
+  const cardElement = getCardElement(card);
+  cardsList.prepend(cardElement);
+});
 
 // Create the form submission handler. 
 function handleProfileFormSubmit(evt) {
@@ -99,25 +138,29 @@ function handleProfileFormSubmit(evt) {
 
 // Create the form submission handler.
 function handleAddCardSubmit(evt) {
-  // Prevent default browser behavior.
+  
   evt.preventDefault(); 
  
   const cardNameValue = cardNameInput.value;
   const cardLinkValue = cardLinkInput.value;
 
-  // Log both input values to the console.
-  console.log(cardNameValue);
-  console.log(cardLinkValue);
+  const newCardData = {
+    name: cardNameValue,
+    link: cardLinkValue
+  };
 
+  const cardElement = getCardElement(newCardData);
+  cardsList.prepend(cardElement);
+
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
+  
   // Close the modal.
   closeModal(newPostModal);
 }
 
-// Create the submit listener.
+
 addCardFormElement.addEventListener('submit', handleAddCardSubmit);
 
-// Set the submit listener.
+
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
-
-
-

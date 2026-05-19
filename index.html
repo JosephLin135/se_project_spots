@@ -50,110 +50,7 @@
         </div>
       </section>
       <section class="cards">
-        <ul class="cards__list">
-          <li class="card">
-            <img
-              src="./images/fuji.jpg"
-              alt="Street in Tokyo"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Mt. Fuji</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              src="./images/fushimi.jpg"
-              alt="Kyoto neighborhood"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Fushimi Inari Taisha</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              src="./images/kyoto.jpg"
-              alt="Night lights in Japan"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Kyoto</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              src="./images/shibuya.jpg"
-              alt="Mountain landscape"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Shibuya Crossing</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              src="./images/sky-tree.jpg"
-              alt="Japanese street crossing"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Tokyo Sky Tree</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              src="./images/tokyo-tower.jpg"
-              alt="Temple district"
-              class="card__image"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Tokyo Tower</h2>
-              <button type="button" class="card__like-button">
-                <img
-                  src="./images/like.svg"
-                  alt="Like"
-                  class="card__like-icon"
-                />
-              </button>
-            </div>
-          </li>
-        </ul>
+        <ul class="cards__list"></ul>
       </section>
     </main>
     <footer class="footer">
@@ -215,6 +112,32 @@
         </form>
       </div>
     </div>
+
+    <div class="modal modal_type_preview" id="preview-modal">
+      <div class="modal__container modal__container_type_preview">
+        <button type="button" class="modal__close-button" aria-label="Close"></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <li class="card">
+        <button type="button" class="card__delete-button" aria-label="Delete card"></button>
+        <img class="card__image" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-button">
+            <img
+              src="./images/like.svg"
+              alt="Like"
+              class="card__like-icon"
+            />
+          </button>
+        </div>
+      </li>
+    </template>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>
