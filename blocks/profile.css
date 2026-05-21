@@ -114,3 +114,10 @@
 .profile__button_type_new-post .profile__button-text {
   color: #fff;
 }
+
+@media (min-width: 631px) {
+  .profile {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

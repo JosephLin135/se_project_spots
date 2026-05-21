@@ -12,6 +12,12 @@
   border-radius: 8px;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.card__image:hover {
+  opacity: 0.9;
 }
 
 .card__delete-button {
@@ -80,4 +86,12 @@
 
 .card__like-button_is-active:hover .card__like-icon {
   opacity: 80%;
+}
+
+@media (max-width: 630px) {
+  .card__image {
+    width: 100%;
+    max-width: 100%;
+    height: 288px;
+  }
 }

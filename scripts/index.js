@@ -82,15 +82,16 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   const deleteButton = cardElement.querySelector(".card__delete-button");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const cardName = data.name && data.name.trim() ? data.name.trim() : "User post";
 
   cardImage.src = data.link;
-  cardImage.alt = data.name;
-  cardTitle.textContent = data.name;
+  cardImage.alt = `${cardName} image`;
+  cardTitle.textContent = cardName;
 
   cardImage.addEventListener("click", function() {
     previewModalImage.src = data.link;
-    previewModalImage.alt = data.name;
-    previewModalCaption.textContent = data.name;
+    previewModalImage.alt = `${cardName} image`;
+    previewModalCaption.textContent = cardName;
     openModal(previewModal);
   });
 
@@ -141,8 +142,14 @@ function handleAddCardSubmit(evt) {
   
   evt.preventDefault(); 
  
-  const cardNameValue = cardNameInput.value;
-  const cardLinkValue = cardLinkInput.value;
+  const cardNameValue = cardNameInput.value.trim();
+  const cardLinkValue = cardLinkInput.value.trim();
+
+  // JS fallback in case native validation is bypassed.
+  if (!cardNameValue || !cardLinkValue) {
+    addCardFormElement.reportValidity();
+    return;
+  }
 
   const newCardData = {
     name: cardNameValue,
@@ -152,15 +159,14 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(newCardData);
   cardsList.prepend(cardElement);
 
-  cardNameInput.value = "";
-  cardLinkInput.value = "";
+  addCardFormElement.reset();
   
   // Close the modal.
   closeModal(newPostModal);
 }
 
 
-addCardFormElement.addEventListener('submit', handleAddCardSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 
-profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+profileFormElement.addEventListener("submit", handleProfileFormSubmit);
