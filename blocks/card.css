@@ -24,6 +24,7 @@
   position: absolute;
   top: 9px;
   right: 10px;
+  z-index: 1;
   width: 32px;
   height: 32px;
   border: none;
