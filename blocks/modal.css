@@ -37,8 +37,8 @@
 }
 
 .modal__container_type_preview {
-  max-width: unset;
-  width: auto;
+  max-width: 100%;
+  width: 100%;
   padding: 0;
   background-color: transparent;
   border-radius: 0;
@@ -80,7 +80,7 @@
 }
 
 .modal__image {
-  max-width: 80vw;
+  max-width: 90vw;
   max-height: 80vh;
   object-fit: contain;
   display: block;
@@ -157,6 +157,7 @@
   }
 
   .modal__container_type_preview {
+    width: 100%;
     gap: 4px;
   }
 
@@ -166,8 +167,10 @@
   }
 
   .modal__image {
-    max-width: 240px;
-    max-height: 240px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
   }
 
   .modal__caption {

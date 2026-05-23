@@ -103,9 +103,9 @@ function getCardElement(data) {
   likeButton.addEventListener("click", function() {
     likeButton.classList.toggle("card__like-button_is-active");
     if (likeButton.classList.contains("card__like-button_is-active")) {
-      likeIcon.src = "./images/liked.svg";
+      likeIcon.src = "./images/heart.svg";
     } else {
-      likeIcon.src = "./images/like.svg";
+      likeIcon.src = "./images/heart_hover.svg";
     }
   });
 
