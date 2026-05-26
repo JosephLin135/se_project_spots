@@ -33,16 +33,16 @@ const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
-const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalContainer = previewModal.querySelector(".modal__container_type_preview");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 const modalList = document.querySelectorAll(".modal");
 
 function handleEscapeKey(event) {
-  const openedModal = document.querySelector(".modal_is-opened");
-  
   if (event.key !== "Escape") {
     return;
   }
+
+  const openedModal = document.querySelector(".modal_is-opened");
 
   if (openedModal) {
     closeModal(openedModal);
@@ -63,6 +63,21 @@ function handleOverlayClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.currentTarget);
   }
+}
+
+function renderPreviewImage(link, altText) {
+  const existingPreviewImage = previewModalContainer.querySelector(".modal__image");
+
+  if (existingPreviewImage) {
+    existingPreviewImage.remove();
+  }
+
+  const previewImageElement = document.createElement("img");
+  previewImageElement.classList.add("modal__image");
+  previewImageElement.src = link;
+  previewImageElement.alt = altText;
+
+  previewModalContainer.insertBefore(previewImageElement, previewModalCaption);
 }
 
 const editProfile = document.querySelector(".profile__button_type_edit");
@@ -114,8 +129,7 @@ function getCardElement(data) {
   cardTitle.textContent = cardName;
 
   cardImage.addEventListener("click", function() {
-    previewModalImage.src = data.link;
-    previewModalImage.alt = `${cardName} image`;
+    renderPreviewImage(data.link, `${cardName} image`);
     previewModalCaption.textContent = cardName;
     openModal(previewModal);
   });

@@ -73,7 +73,7 @@
   width: 23px;
   height: 20px;
   display: block;
-  opacity: 40%;
+  opacity: 0.4;
   transition: opacity 0.8s ease;
 }
 

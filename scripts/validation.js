@@ -8,7 +8,7 @@ const settings = {
 };
 
 const showInputError = (formElement, inputElement, config) => {
-	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 
 	if (!errorElement) {
 		return;
