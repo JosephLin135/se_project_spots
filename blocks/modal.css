@@ -136,6 +136,23 @@
   color: #2121214d;
 }
 
+.modal__input_type_error {
+  border-color: #ff0000;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  min-height: 16px;
+  color: #ff0000;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.modal__error_visible {
+  visibility: visible;
+}
+
 .modal__submit-button {
   width: 156px;
   height: 52px;
@@ -149,6 +166,11 @@
 
 .modal__submit-button:hover {
   opacity: 0.8;
+}
+
+.modal__submit-button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 @media (max-width: 630px) {

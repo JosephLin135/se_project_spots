@@ -35,14 +35,34 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
 const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
+const modalList = document.querySelectorAll(".modal");
 
+function handleEscapeKey(event) {
+  const openedModal = document.querySelector(".modal_is-opened");
+  
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (openedModal) {
+    closeModal(openedModal);
+  }
+}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
+}
+
+function handleOverlayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
+  }
 }
 
 const editProfile = document.querySelector(".profile__button_type_edit");
@@ -52,6 +72,7 @@ const editProfileCloseButton = editProfileModal.querySelector(".modal__close-but
 editProfile.addEventListener("click", function () {
     nameInput.value = profileNameElement.textContent;
     jobInput.value = profileJobElement.textContent;
+    clearValidation(profileFormElement, settings);
     openModal(editProfileModal);
 });
 
@@ -73,6 +94,10 @@ newPostCloseButton.addEventListener("click", function () {
 
 previewModalCloseButton.addEventListener("click", function () {
   closeModal(previewModal);
+});
+
+modalList.forEach(function (modal) {
+  modal.addEventListener("click", handleOverlayClick);
 });
 
 
@@ -105,7 +130,7 @@ function getCardElement(data) {
     if (likeButton.classList.contains("card__like-button_is-active")) {
       likeIcon.src = "./images/heart.svg";
     } else {
-      likeIcon.src = "./images/heart_hover.svg";
+      likeIcon.src = "./images/like.svg";
     }
   });
 
@@ -160,6 +185,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   addCardFormElement.reset();
+  clearValidation(addCardFormElement, settings);
   
   // Close the modal.
   closeModal(newPostModal);

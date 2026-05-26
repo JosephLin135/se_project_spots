@@ -68,8 +68,12 @@
               id="profile-name-input"
               type="text"
               class="modal__input"
+              required
+              minlength="2"
+              maxlength="40"
               placeholder="Type your name"
             />
+            <span class="modal__error" id="profile-name-input-error" hidden></span>
           </label>
           <label for="profile-description-input" class="modal__label">
             Description
@@ -77,8 +81,12 @@
               id="profile-description-input"
               type="text"
               class="modal__input"
+              required
+              minlength="2"
+              maxlength="200"
               placeholder="Describe yourself"
             />
+            <span class="modal__error" id="profile-description-input-error" hidden></span>
           </label>
           <button type="submit" class="modal__submit-button">Save</button>
         </form>
@@ -99,6 +107,7 @@
               required
               placeholder="Paste a link to the picture"
             />
+            <span class="modal__error" id="post-image-input-error" hidden></span>
           </label>
           <label for="post-caption-input" class="modal__label">
             Caption
@@ -107,8 +116,11 @@
               type="text"
               class="modal__input"
               required
+              minlength="2"
+              maxlength="30"
               placeholder="Type your caption"
             />
+            <span class="modal__error" id="post-caption-input-error" hidden></span>
           </label>
           <button type="submit" class="modal__submit-button">Save</button>
         </form>
@@ -140,6 +152,7 @@
       </li>
     </template>
 
+    <script src="scripts/validation.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>

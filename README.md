@@ -13,4 +13,7 @@ View deployed project here: https://josephlin135.github.io/se_project_spots/
 
 ## Project Pitch Video Link
 
-View the project pitch video here: https://drive.google.com/file/d/1ySbVAo53_LcaR-qJmpW-p95xMEa9bnRO/view?usp=drive_link
+View the project pitch video 1 here: https://drive.google.com/file/d/1ySbVAo53_LcaR-qJmpW-p95xMEa9bnRO/view?usp=drive_link, explaining just some fundamentals of the project's HTML and CSS.
+
+View the project pitch video 2 here (It said that downloading the video can only be done with a Business plan, so I just copied the link to the video directly on Loom): https://www.loom.com/share/a64f4e564b504298a8203afb68dc4053, explaining more about the functionalities of different components added after the first pitch video.
+
