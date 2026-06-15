@@ -173,6 +173,63 @@
   pointer-events: none;
 }
 
+.modal__title_type_delete {
+  font-size: 24px;
+}
+
+.modal__form_type_delete {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__delete-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.modal__submit-button_type_delete {
+  background-color: #ff6565;
+  color: #212121;
+  width: auto;
+  min-width: 156px;
+  border: none;
+}
+
+.modal__submit-button_type_delete:hover {
+  background-color: #ff3333;
+  opacity: 1;
+}
+
+.modal__cancel-button {
+  width: auto;
+  min-width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  border: 1px solid #212121;
+  background-color: #fff;
+  color: #212121;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#delete-card-modal .modal__close-button {
+  top: -12px;
+  right: -52px;
+  background-image: url("../images/x_dark.svg");
+}
+
+#delete-card-modal .modal__close-button:hover {
+  background-image: url("../images/x_dark_hover.svg");
+}
+
+.modal__cancel-button:hover {
+  background-color: #212121;
+  color: #fff;
+}
+
 @media (max-width: 630px) {
   .modal_type_preview {
     padding: 0 12px;

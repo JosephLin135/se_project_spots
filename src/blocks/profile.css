@@ -10,11 +10,74 @@
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }
 
+.profile__picture-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+
 .profile__picture {
   width: 190px;
   height: 190px;
   border-radius: 8px;
   object-fit: cover;
+  display: block;
+}
+
+.profile__picture-edit-button {
+  position: absolute;
+  inset: 0;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  padding-bottom: 10px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+}
+
+.profile__picture-edit-icon {
+  filter: brightness(0) invert(1);
+}
+
+.profile__picture-container:hover .profile__picture-edit-button {
+  opacity: 1;
+}
+
+@media (max-width: 630px) {
+  .profile__picture-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .profile__picture {
+    width: 100%;
+    height: auto;
+  }
+
+  .profile__picture-edit-button {
+    opacity: 1;
+    inset: auto;
+    bottom: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0;
+  }
+
+  .profile__picture-edit-button span {
+    display: none;
+  }
 }
 
 .profile__details {
