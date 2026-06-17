@@ -14,15 +14,6 @@ let currentUserId = null;
 let selectedCard = null;
 let selectedCardId = null;
 
-const initialCards = [
-  { name: "Mt. Fuji", link: "./images/fuji.jpg" },
-  { name: "Fushimi Inari Taisha", link: "./images/fushimi.jpg" },
-  { name: "Kyoto", link: "./images/kyoto.jpg" },
-  { name: "Shibuya Crossing", link: "./images/shibuya.jpg" },
-  { name: "Tokyo Sky Tree", link: "./images/sky-tree.jpg" },
-  { name: "Tokyo Tower", link: "./images/tokyo-tower.jpg" },
-];
-
 const profileFormElement = document.querySelector("#edit-profile-modal .modal__form");
 const nameInput = profileFormElement.querySelector("#profile-name-input");
 const jobInput = profileFormElement.querySelector("#profile-description-input");
@@ -212,14 +203,10 @@ function getCardElement(data) {
   return cardElement;
 }
 
-initialCards.forEach(function (card) {
-  const cardElement = getCardElement(card);
-  cardsList.prepend(cardElement);
-});
-
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(function ([cards, userData]) {
     currentUserId = userData._id;
+    profilePictureElement.src = userData.avatar;
     profileNameElement.textContent = userData.name;
     profileJobElement.textContent = userData.about;
     cards.forEach(function (card) {
@@ -285,6 +272,15 @@ function handleDeleteSubmit(evt) {
   evt.preventDefault();
   const submitButton = deleteCardFormElement.querySelector(settings.submitButtonSelector);
   const originalText = submitButton.textContent;
+
+  if (!selectedCardId) {
+    selectedCard.remove();
+    closeModal(deleteCardModal);
+    selectedCard = null;
+    selectedCardId = null;
+    return;
+  }
+
   submitButton.textContent = "Deleting...";
 
   api.deleteCard(selectedCardId)
